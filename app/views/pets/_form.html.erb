@@ -1,0 +1,8 @@
+<%= simple_form_for @pet do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :found_on %>
+    <%= f.input :species %>
+    <%= f.input :location %>
+    <%= f.submit class: "btn btn-primary mt-4" %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <h1>All Pets</h1>
+
+    <ul>
+        <% @pets.each do |pet| %>
+        <li>
+            <p><%= pet.name %><%= pet.description %></p>
+        </li>
+        <% end %>
+    </ul>
+</div>
