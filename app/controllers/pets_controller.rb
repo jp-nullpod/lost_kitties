@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+    before_action :set_pet, only: [:show, :edit, :update, :destroy]
+
     def index
         @pets = Pet.all
     end
@@ -8,6 +10,9 @@ class PetsController < ApplicationController
     end
 
     def create
+        @pet = Pet.new(pet_params)
+        @pet.save
+        redirect_to pet_path(@pet)
     end
 
     def show
@@ -17,8 +22,22 @@ class PetsController < ApplicationController
     end
 
     def update
+        @pet.update(pet_params)
+        redirect_to pet_path(@pet)
     end
 
     def destroy
+        @pet.destroy
+        redirect_to pets_path, status: :see_other
+    end
+
+    private 
+
+    def pet_params
+        params.require(:pet).permit(:name, :description, :found_on, :species, :location)
+    end
+
+    def set_pet
+        @pet = Pet.find(params[:id])
     end
 end
