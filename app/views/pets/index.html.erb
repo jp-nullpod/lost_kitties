@@ -4,7 +4,7 @@
     <ul>
         <% @pets.each do |pet| %>
         <li>
-            <p><%= pet.name.capitalize %> (<small><%= pet.description %></small>)</p>
+            <p><%= link_to pet.name.capitalize, pet_path(pet) %> (<small><%= pet.description %></small>)</p>
         </li>
         <% end %>
     </ul>

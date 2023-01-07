@@ -6,4 +6,10 @@
         <li>Location: <%= @pet.location %></li>
         <li>Found on: <%= @pet.found_on %></li>
     </ul>
+    <br>
+    <%= link_to "Edit", edit_pet_path %>
+    <br>
+    <%= link_to "Delete", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@pet.name}?"} %>
+    <br>
+    <%= link_to "Back to home", pets_path %>
 </div>
